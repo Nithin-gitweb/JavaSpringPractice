@@ -8,6 +8,14 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
 	
+    <context:property-placeholder location = "classpath:details.properties"/>
+    <bean id="WelcomeScreen" class = "com.DependencyInjection.StudentDetails.Greetings"></bean> 
+    <bean id="Student" class = "com.DependencyInjection.StudentDetails.DetailsFetch">
+    <property name="greetings" ref="WelcomeScreen"></property>
+    <property name="Name" value="${details1.Name}"></property>
+    <property name="RollNumber" value = "${details1.RollNumber}"></property>
+    </bean>
+	
     <!-- Define your beans here -->
     <bean id="Coaches" class="com.InversionControl.SportsCoach.CricketCoach"></bean>
     <bean id="Assignment" class = "com.InversionControl.SubjectAssignment.MathExe"></bean>
